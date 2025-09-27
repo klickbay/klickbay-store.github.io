@@ -29,6 +29,8 @@
       font-family: 'Inter', sans-serif;
       color: white;
       text-shadow: 1px 1px 2px black;
+      background: url('Gemini_Generated_Image_cikrnjcikrnjcikr.png') no-repeat center center fixed;
+      background-size: cover;
     }
 
     .gallery-img {
@@ -47,7 +49,6 @@
       border-radius: 50%;
       animation: spin 10s linear infinite;
     }
-
     @keyframes spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
@@ -61,12 +62,10 @@
       transition: all 0.3s ease-in-out;
       animation: pulse 2s infinite;
     }
-
     .yaga-pink:hover {
       background-color: hotpink;
       color: white;
     }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       70% { transform: scale(1.05); }
@@ -92,20 +91,39 @@
     }
     .whatsapp-button i { font-size: 30px; }
 
-    /* Hero Flip Animation */
-    .hero-flip {
-      animation: flipCoin 10s linear infinite;
-      transform-style: preserve-3d;
+    /* Hero background flip animation */
+    .hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
     }
-
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('HeroImage.jpg') center/cover no-repeat;
+      opacity: 0.6; /* transparency so body bg shows */
+      animation: flipCoin 20s linear infinite;
+      transform-origin: center;
+      z-index: 0;
+    }
     @keyframes flipCoin {
       0%   { transform: rotateY(0deg); }
       100% { transform: rotateY(360deg); }
     }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 
-<body style="background: url('Gemini_Generated_Image_cikrnjcikrnjcikr.png') no-repeat center center fixed; background-size: cover;">
+<body>
 
   <header class="bg-black bg-opacity-60 shadow-md sticky top-0 z-50">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -131,10 +149,9 @@
     </div>
   </header>
 
-  <section class="relative h-[70vh] flex flex-col items-center justify-center text-center">
+  <section class="hero">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative z-10 px-6">
-      <img src="HeroImage.jpg" alt="Hero Image" class="mx-auto hero-flip w-[400px] h-auto rounded-lg shadow-lg mb-8">
+    <div class="hero-content px-6">
       <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-wide">Exquisite Style, Tailored For You.</h1>
       <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Sneakers, kids' shoes, and care services crafted with legacy, culture, and passion.
@@ -146,6 +163,7 @@
 
   <main class="container mx-auto px-6 py-12">
 
+    <!-- Kids -->
     <section id="kids" class="mb-16">
       <h2 class="text-3xl font-bold text-center mb-8">Kids' Shoes</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,6 +174,7 @@
       </div>
     </section>
 
+    <!-- Sneakers -->
     <section id="sneakers" class="mb-16">
       <h2 class="text-3xl font-bold text-center mb-8">Sneakers</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -169,6 +188,7 @@
       </div>
     </section>
 
+    <!-- Services -->
     <section id="services" class="mb-16">
       <h2 class="text-3xl font-bold text-center mb-8">Our Premium Services</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
@@ -190,12 +210,14 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="text-center">
       <h2 class="text-3xl font-bold mb-8">Connect With Us</h2>
       <p class="mb-6">Follow us and shop the latest drops directly on our Yaga store.</p>
       <a href="https://www.yaga.co.za/artyzen-kicks" target="_blank" class="yaga-pink py-3 px-8 rounded-lg">Shop on Yaga</a>
     </section>
 
+    <!-- Quotes -->
     <section class="text-center mt-16">
       <p class="text-sm italic text-gray-200">“Legacy is greater than currency.” – Gary Vee</p>
       <p class="text-sm italic text-gray-200">“Make it epic for your fans, and they’ll make you unforgettable.” – MrBeast</p>
@@ -203,6 +225,7 @@
 
   </main>
 
+  <!-- WhatsApp Button -->
   <a href="https://wa.me/27680320894" class="whatsapp-button" target="_blank" title="Chat with us on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
