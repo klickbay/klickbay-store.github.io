@@ -4,69 +4,87 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>KLICKBAY — Curated Sneakers · Luxury Perfumes · Bespoke Traditional Fashion</title>
-  <meta name="description" content="KLICKBAY offers curated kids' sneakers, imported luxury perfumes at accessible prices, and bespoke traditional fashion inspired by African heritage.">
+  <meta name="description" content="KLICKBAY offers curated kids' sneakers, imported luxury perfumes at accessible prices, and bespoke traditional fashion inspired by African heritage. Christiano Ronaldo Quote">
   <meta name="keywords" content="Klickbay, sneakers, kids shoes, luxury perfumes, bespoke fashion, traditional clothing, South Africa">
+
+  <!-- Social / Open Graph -->
   <meta property="og:title" content="KLICKBAY — Sneakers, Perfumes & Bespoke Fashion">
   <meta property="og:description" content="Imported luxury fragrances made accessible — curated sneakers and bespoke traditional garments.">
-  <meta property="og:image" content="klickbay-logo.png">
+  <meta property="og:image" content="https://raw.githubusercontent.com/klickbay-ArtiZen-Kicks/klickbay-ArtiZen-Kicks.github.io/main/klickbay-logo.png">
   <meta property="og:type" content="website">
 
+  <!-- Fonts + Icons + Tailwind -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    :root {
+    :root{
       --gold:#d4af37;
       --gold-2:#b8892e;
       --muted:#cfcfcf;
     }
 
-    html, body { height:100%; }
+    html,body{height:100%}
 
-    /* Default background (ocean, pearls, gold leaf) */
+    /* ✨ Main body base styles */
     body {
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat,
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5) 0%, transparent 70%),
-        url('https://www.transparenttextures.com/patterns/gold-leaf.png');
-      color:#F6F6F6;
-      background-blend-mode: overlay, normal, lighten, multiply;
-      transition: background 2s ease-in-out;
+      background-color: #000;
+      color: #F6F6F6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Alternate background for perfume section */
-    body.perfume-bg {
-      background: url('Sunlit Shell Pearl Starfish Hair Pin.jpg') center/cover no-repeat;
+    /* 🌅 Background image starts where hero ends */
+    main + section {
+      background: url('https://raw.githubusercontent.com/klickbay-ArtiZen-Kicks/klickbay-ArtiZen-Kicks.github.io/main/Sunlit%20Shell%20Pearl%20Starfish%20Hair%20Pin.jpg') center/cover no-repeat fixed;
+      background-size: cover;
     }
 
-    /* Spinning logo */
-    .spin-logo {
-      animation: spin 8s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .gold-glow {
-      box-shadow: 0 0 10px rgba(212,175,55,0.5), 0 0 30px rgba(184,137,46,0.2);
+    /* ✨ Logo crossfade morph with glow */
+    .animated-logo {
+      position: relative;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(212,175,55,0.6), 0 0 40px rgba(184,137,46,0.4);
+      animation: logoGlow 3s ease-in-out infinite alternate;
     }
 
-    .fade { animation: fadeIn 1s ease both; }
-    @keyframes fadeIn {
-      from { opacity:0; transform:translateY(20px); }
-      to { opacity:1; transform:none; }
+    .animated-logo img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 9999px;
+      transition: opacity 2.5s ease-in-out;
     }
 
-    .glass { background: rgba(255,255,255,0); border:none; backdrop-filter:none; }
-    :focus { outline:3px solid rgba(212,175,55,0.0); outline-offset:3px; }
+    .animated-logo img.flag {
+      animation: fadeFlag 6s ease-in-out infinite alternate;
+    }
 
-    h1,h2,p { text-shadow:0 2px 6px rgba(0,0,0,0.6); }
-    .product-img { min-height:180px; object-fit:cover; border-radius:10px; }
-    .maxw { max-width:1200px; }
+    @keyframes fadeFlag {
+      0%,45% { opacity: 0; }
+      50%,95% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes logoGlow {
+      from { box-shadow: 0 0 10px rgba(212,175,55,0.5), 0 0 25px rgba(184,137,46,0.3); }
+      to { box-shadow: 0 0 25px rgba(212,175,55,0.8), 0 0 50px rgba(184,137,46,0.5); }
+    }
+
+    /* Glow and fade elements */
+    .fade{animation:fadeIn 1s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+    .product-img{min-height:180px;object-fit:cover;border-radius:10px}
+    .maxw{max-width:1200px}
+    h1,h2,p{text-shadow:0 2px 6px rgba(0,0,0,0.6);}
+    .gold-glow{box-shadow:0 0 10px rgba(212,175,55,0.5),0 0 30px rgba(184,137,46,0.2);}
   </style>
 </head>
 
@@ -75,9 +93,11 @@
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-black/60 backdrop-blur-sm border-b border-white/6">
     <div class="maxw mx-auto px-6 py-4 flex items-center justify-between gap-4">
-      <a href="#home" class="flex items-center gap-3">
-        <img src="klickbay-logo.png" alt="KLICKBAY logo"
-          class="h-12 w-12 rounded-full object-cover shadow-sm gold-glow spin-logo">
+      <a href="#home" class="flex items-center gap-3" aria-label="KLICKBAY Home">
+        <div class="animated-logo">
+          <img src="https://raw.githubusercontent.com/klickbay-ArtiZen-Kicks/klickbay-ArtiZen-Kicks.github.io/main/klickbay-logo.png" alt="KLICKBAY logo" class="base">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg" alt="South African Flag" class="flag">
+        </div>
         <div>
           <div class="text-lg font-extrabold tracking-tight text-yellow-300 drop-shadow-md">KLICKBAY</div>
           <div class="text-xs text-gray-300">Sneakers · Perfumes · Bespoke Traditional Fashion</div>
@@ -89,15 +109,15 @@
         <a href="#sneakers" class="hover:text-yellow-300 transition">Sneakers</a>
         <a href="#kids" class="hover:text-yellow-300 transition">Kids' Shoes</a>
         <a href="#fashion" class="hover:text-yellow-300 transition">Bespoke Fashion</a>
-        <a href="#contact"
-           class="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-2)] text-black px-4 py-2 rounded-lg shadow-sm font-semibold gold-glow">Enquire</a>
+        <a href="#contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-2)] text-black px-4 py-2 rounded-lg shadow-sm font-semibold gold-glow">Enquire</a>
       </nav>
 
-      <button id="mobile-toggle" class="md:hidden p-2 text-gray-200">
+      <button id="mobile-toggle" class="md:hidden p-2 text-gray-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
         <i class="fas fa-bars fa-lg"></i>
       </button>
     </div>
 
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
       <a href="#perfumes" class="block py-2">Perfumes</a>
       <a href="#sneakers" class="block py-2">Sneakers</a>
@@ -110,18 +130,23 @@
   <!-- HERO -->
   <main id="home" class="min-h-[70vh] flex items-center relative overflow-hidden">
     <picture class="absolute inset-0 -z-10">
-      <img src="Gemini_Generated_Image_293u77293u77293u.png" alt="KLICKBAY hero" class="w-full h-[70vh] object-cover opacity-90">
+      <source srcset="hero-large.jpg" media="(min-width:1024px)">
+      <img src="Gemini_Generated_Image_293u77293u77293u.png" alt="KLICKBAY hero" class="w-full h-[70vh] object-cover opacity-90" loading="lazy" />
     </picture>
+
     <section class="w-full">
       <div class="maxw mx-auto px-6 py-16 text-center fade">
         <div class="max-w-3xl mx-auto p-8 rounded-2xl backdrop-blur-md bg-black/30 gold-glow">
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-yellow-300">Signature Scents. Curated Sneakers. Bespoke Traditional Fashion.</h1>
           <p class="text-gray-200 mb-6">Imported luxury fragrances made accessible — premium formulas, authentic sourcing, and approachable pricing. Discover curated sneakers and custom traditional garments crafted with care.</p>
+
           <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a href="#perfumes" class="px-6 py-3 rounded-md font-semibold bg-gradient-to-r from-[var(--gold)] to-[var(--gold-2)] text-black shadow-sm gold-glow">Explore Perfumes</a>
             <a href="#sneakers" class="px-6 py-3 rounded-md font-semibold border border-white/10 text-white hover:bg-white/10">Shop Sneakers</a>
             <a href="#fashion" class="px-6 py-3 rounded-md font-semibold border border-white/10 text-white hover:bg-white/10">Custom Fashion</a>
           </div>
+
+          <p class="text-xs text-gray-400 mt-4">Perfume purchases are handled securely via our enquiry process</p>
         </div>
       </div>
     </section>
@@ -131,47 +156,64 @@
   <section id="perfumes" class="maxw mx-auto px-6 py-12">
     <div class="grid lg:grid-cols-2 gap-8 items-center">
       <div class="rounded-xl overflow-hidden shadow-lg gold-glow">
-        <img src="Gemini_Generated_Image_cupiz8cupiz8cupi.png" alt="Luxury perfumes collection" class="w-full h-96 object-cover">
+        <img src="Gemini_Generated_Image_cupiz8cupiz8cupi.png" alt="Luxury perfumes collection" class="w-full h-96 object-cover" loading="lazy">
       </div>
 
-      <div class="glass p-6 rounded-xl backdrop-blur-sm bg-black/40">
+      <div class="p-6 rounded-xl backdrop-blur-sm bg-black/40">
         <h2 class="text-2xl font-bold text-yellow-300">Imported Luxury Perfumes — Accessible Pricing</h2>
-        <p class="text-gray-200 mt-3">We source authentic, high-quality fragrances from trusted international suppliers and offer them in accessible price tiers.</p>
+        <p class="text-gray-200 mt-3">We source authentic, high-quality fragrances from trusted international suppliers and offer them in accessible price tiers. Each formulation is selected for longevity and true-to-original character.</p>
+
+        <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-100">
+          <li class="p-3 bg-white/5 rounded"><strong>For Her</strong><div class="text-xs text-gray-300 mt-1">Warm gourmands, delicate florals and modern gourmand signatures.</div></li>
+          <li class="p-3 bg-white/5 rounded"><strong>For Him</strong><div class="text-xs text-gray-300 mt-1">Refined fougères, woody orientals and crisp citrus accords.</div></li>
+        </ul>
+
+        <div class="mt-6 flex gap-3">
+          <a href="#contact" class="px-4 py-2 rounded bg-[var(--gold)] text-black font-semibold gold-glow">Enquire About Perfumes</a>
+          <button onclick="openQuickList('perfume-list')" class="px-4 py-2 rounded border border-white/10 text-white hover:bg-white/10">View Fragrance List</button>
+        </div>
+
+        <p class="text-xs text-gray-400 mt-4">Available sizes: 30ml / 50ml / 100ml. Submit an enquiry — we reply personally with availability and pricing.</p>
       </div>
     </div>
   </section>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/27680320894" class="fixed right-6 bottom-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg" title="Chat on WhatsApp">
+  <a href="https://wa.me/27680320894" class="fixed right-6 bottom-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
     <div style="background:#25d366" class="w-full h-full rounded-full flex items-center justify-center text-white gold-glow">
       <i class="fab fa-whatsapp fa-lg"></i>
     </div>
   </a>
 
-  <script>
-    // Mobile menu toggle
-    const toggle = document.getElementById('mobile-toggle');
-    const mobile = document.getElementById('mobile-menu');
-    toggle?.addEventListener('click', ()=> mobile.classList.toggle('hidden'));
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-60">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative bg-black/90 rounded-xl w-11/12 md:w-3/4 lg:w-1/2 p-6 gold-glow">
+      <button id="modal-close" class="absolute top-4 right-4 text-gray-300"><i class="fas fa-times"></i></button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const el = document.querySelector(a.getAttribute('href'));
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-      });
+  <script>
+    const toggle = document.getElementById('mobile-toggle'),
+          mobile = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', ()=> {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      mobile.classList.toggle('hidden');
     });
 
-    // Background switch when entering perfumes section
-    const perfumeSection = document.querySelector('#perfumes');
-    window.addEventListener('scroll', () => {
-      const rect = perfumeSection.getBoundingClientRect();
-      const body = document.body;
-      if(rect.top <= window.innerHeight/2 && rect.bottom >= 0){
-        body.classList.add('perfume-bg');
-      } else {
-        body.classList.remove('perfume-bg');
-      }
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (href.length > 1) {
+          const el = document.querySelector(href);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({behavior:'smooth', block:'start'});
+          }
+        }
+      });
     });
   </script>
 </body>
